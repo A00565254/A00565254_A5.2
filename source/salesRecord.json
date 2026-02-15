@@ -1,0 +1,26 @@
+[
+  {
+    "Product": "Laptop Pro 15",
+    "Quantity": 2
+  },
+  {
+    "Product": "Mouse Inalámbrico",
+    "Quantity": 5
+  },
+  {
+    "Product": "Monitor 4K",
+    "Quantity": 1
+  },
+  {
+    "Product": "Producto Fantasma",
+    "Quantity": 10
+  },
+  {
+    "Product": "Teclado Mecánico",
+    "Quantity": "error_de_dato"
+  },
+  {
+    "Product": "Cable HDMI",
+    "Quantity": 3
+  }
+]
