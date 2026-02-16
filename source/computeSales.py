@@ -1,3 +1,4 @@
+# pylint: disable=invalid-name
 """
 Guillermo Contreras Pedroza
 A00565254
@@ -20,7 +21,7 @@ def load_json_file(file_path):
         print(f"Error: El archivo '{file_path}' no existe.")
     except json.JSONDecodeError:
         print(f"Error: El archivo '{file_path}' no tiene un formato JSON válido.")
-    except Exception as e:
+    except OSError as e:
         print(f"Error inesperado al leer '{file_path}': {e}")
     return None
 
@@ -29,9 +30,9 @@ def calculate_total_sales(catalogue, sales):
     """Calcula el costo total cruzando ventas con el catálogo."""
     # Convertimos el catálogo a un diccionario para búsqueda rápida O(1)
     # Req 6: Esto permite manejar miles de items eficientemente
-    price_map = {item['title']: item['price'] for item in catalogue 
+    price_map = {item['title']: item['price'] for item in catalogue
                  if 'title' in item and 'price' in item}
-    
+
     total_cost = 0.0
     errors = []
 
@@ -96,7 +97,7 @@ def main():
     try:
         with open("SalesResults.txt", "w", encoding='utf-8') as f:
             f.write(results_output)
-    except Exception as e:
+    except OSError as e:
         print(f"Error al escribir el archivo de resultados: {e}")
 
 
