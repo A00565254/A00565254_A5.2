@@ -3,7 +3,7 @@
 Guillermo Contreras Pedroza
 A00565254
 computeSales.py
-Programa para calcular el costo total de ventas basado en un catálogo de precios.
+Programa para calcular el costo total de ventas desde un catálogo de precios.
 Cumple con requerimientos de manejo de errores, PEP8 y registro de tiempo.
 """
 
@@ -20,7 +20,7 @@ def load_json_file(file_path):
     except FileNotFoundError:
         print(f"Error: El archivo '{file_path}' no existe.")
     except json.JSONDecodeError:
-        print(f"Error: El archivo '{file_path}' no tiene un formato JSON válido.")
+        print(f"Error: El archivo '{file_path}' no tiene un formato válido.")
     except OSError as e:
         print(f"Error inesperado al leer '{file_path}': {e}")
     return None
@@ -46,7 +46,7 @@ def calculate_total_sales(catalogue, sales):
             except (ValueError, TypeError):
                 errors.append(f"Dato inválido en venta: {record}")
         else:
-            errors.append(f"Producto no encontrado en catálogo: {product_name}")
+            errors.append(f"Producto no encontrado: {product_name}")
 
     return total_cost, errors
 
@@ -57,7 +57,8 @@ def main():
 
     # Req 5: Validación de argumentos de línea de comandos
     if len(sys.argv) != 3:
-        print("Uso: python computeSales.py priceCatalogue.json salesRecord.json")
+        print("""Uso: python computeSales.py priceCatalogue.json
+              salesRecord.json""")
         sys.exit(1)
 
     catalogue_file = sys.argv[1]
@@ -71,12 +72,12 @@ def main():
         sys.exit(1)
 
     # Procesamiento
-    total, processing_errors = calculate_total_sales(catalogue_data, sales_data)
+    total, process_errors = calculate_total_sales(catalogue_data, sales_data)
 
     # Req 3: Mostrar errores en consola sin detener la ejecución
-    if processing_errors:
+    if process_errors:
         print("\n--- Errores encontrados durante el proceso ---")
-        for error in processing_errors:
+        for error in process_errors:
             print(error)
 
     # Cálculo de tiempo (Req 7)

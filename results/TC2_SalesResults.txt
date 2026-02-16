@@ -1,6 +1,6 @@
 ==========================================
        RESULTADOS DE VENTAS TOTALES       
 ==========================================
-Costo Total de Ventas: $165,235.37
+Costo Total de Ventas: $166,568.23
 Tiempo de ejecución:   0.0010 segundos
 ==========================================
